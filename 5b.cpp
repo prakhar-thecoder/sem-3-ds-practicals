@@ -48,6 +48,13 @@ void pre_order(Node *root) {
     pre_order(root->rptr);
 }
 
+void post_order (Node *root) {
+    if (!root) return;
+    post_order(root->lptr);
+    post_order(root->rptr);
+    cout << root->data << " ";
+}
+
 int main() {
     int in[] = {1, 2, 3, 4, 7, 8, 10};
     int pre[] = {4, 3, 2, 1, 7, 8, 10};
@@ -62,6 +69,10 @@ int main() {
 
     cout << "Constructed Pre Order: ";
     pre_order(root);
+    cout << endl;
+
+    cout << "Constructed Post Order: ";
+    post_order(root);
     cout << endl;
 
     return 0;
